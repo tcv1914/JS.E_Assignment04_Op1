@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image SlideShow</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+        background-color: #f4f4f4;
+      }
+      /* Line 13: Thẻ div chứa ảnh */
+      .image-container {
+        width: 500px;
+        height: 300px;
+        margin: 0 auto 20px auto;
+        border: 2px solid #ccc;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image SlideShow</h1>
+    <div class="image-container"></div>
+
+    <button class="back-btn">Back</button>
+
+    <button class="next-btn">Next</button>
+
+    <script>
+      const images = ["dog1.png", "dog2.png", "dog3.png"];
+      let index = 0;
+
+      const imageContainer = document.querySelector(".image-container");
+      const backBtn = document.querySelector(".back-btn");
+      const nextBtn = document.querySelector(".next-btn");
+
+      function renderImage() {
+        imageContainer.innerHTML = `<img src="${images[index]}" alt="Hình ảnh slider">`;
+      }
+
+      renderImage();
+
+      backBtn.addEventListener("click", function () {
+        index--;
+
+        if (index < 0) {
+          index = 0;
+        }
+
+        renderImage();
+      });
+
+      nextBtn.addEventListener("click", function () {
+        index++;
+
+        if (index >= images.length) {
+          index = images.length - 1;
+        }
+
+        renderImage();
+      });
+    </script>
+  </body>
+</html>

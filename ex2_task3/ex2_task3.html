@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task 3</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .output-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        width: 500px;
+        min-height: 20px;
+      }
+      #result-para {
+        color: purple;
+        margin: 0;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="output-box">
+      <p id="result-para"></p>
+    </div>
+
+    <script>
+      const names = [
+        "Anne",
+        "Bert",
+        "John",
+        "David",
+        "Emma",
+        "Chris",
+        "Sophia",
+      ];
+      const para = document.getElementById("result-para");
+
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function chooseName(array) {
+        const randomIndex = random(0, array.length - 1);
+        return array[randomIndex];
+      }
+
+      para.textContent = chooseName(names);
+    </script>
+  </body>
+</html>
